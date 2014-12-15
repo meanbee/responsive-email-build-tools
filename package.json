@@ -1,0 +1,14 @@
+{
+  "name": "ResponsiveEmails",
+  "version": "1.0.0",
+  "description": "Boilerplate and development workflow for responsive emails",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darren Belding",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  }
+}
