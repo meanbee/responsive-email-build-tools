@@ -4,7 +4,9 @@ var gulp = require('gulp'),
 var SRC = 'src/',
     DEST = 'dest/';
 
-gulp.task('default', function() {
+gulp.task('default', ['sass', 'inline'], function () {});
+
+gulp.task('watch', function() {
     gulp.watch(SRC + '**/*.scss', ['sass']);
 });
 
@@ -13,7 +15,7 @@ gulp.task('inline', function() {
         .pipe(plugins.inlineCss({
             applyStyleTags: true,
             applyLinkTags: true,
-            removeStyleTags: true,
+            removeStyleTags: false,
             removeLinkTags: true
         }))
         .pipe(gulp.dest(DEST));
