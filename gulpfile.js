@@ -4,6 +4,12 @@ var gulp = require('gulp'),
 var SRC = 'src/',
     DEST = 'dest/';
 
+var onError = function (error) {
+    plugins.util.beep();
+    console.log(plugins.util.colors.red(error));
+    this.emit('end');
+};
+
 gulp.task('default', ['sass', 'inline'], function () {});
 
 gulp.task('watch', function() {
@@ -23,6 +29,9 @@ gulp.task('inline', function() {
 
 gulp.task('sass', function () {
     return gulp.src(SRC + '**/*.scss')
+        .pipe(plugins.plumber({
+            errorHandler: onError
+        }))
         .pipe(plugins.sass({
             outputStyle: 'expanded'
         }))
